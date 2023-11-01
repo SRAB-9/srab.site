@@ -1,36 +1,32 @@
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 200,
-            "density": {
-                "enable": true,
-                "value_area": 800
+window.onload = function () {
+    Particles.init({
+        selector: '.background',
+        maxParticles: 100,
+        speed: 1,
+        color: '#8ACAFF',
+        connectParticles: true,
+        minDistance: 140,
+        responsive: [
+            {
+                breakpoint:768,
+                options: {
+                    maxParticles: 200,
+                    color: '#9400D3',
+                    connectParticles: false
+                }
+            }, {
+                breakpoint:425,
+                options: {
+                    maxParticles:100,
+                    connectParticles:true
+                }
+            }, {
+                breakpoint:320,
+                options: {
+                    maxParticles:0
+                }
             }
-        },
-        "color": {
-            "value": "#ffffff"
-        },
-        "shape": {
-            "type": "circle"
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": true
-        },
-        "size": {
-            "value": 3
-        },
-        "move": {
-            "enable": true,
-            "speed": 0.5
-        }
-    },
-    "interactivity": {
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "repulse"
-            }
-        }
-    }
-});
+        ]
+
+    })
+}
