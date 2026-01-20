@@ -1,24 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SRAB Minecraft Server - Join our community server today">
     <link rel="icon" type="image/icon" href="/media/icons/1639053276.jpg">
-    <title>S R A B</title>
+    <title>SRAB Minecraft Server</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     
 
-    <div id="centered-text">
+    <!-- <div id="centered-text">
         <h1>
             Comming Soon!
           </h1>
         <p>in progress</p>
-    </div>
+    </div> -->
     <canvas class="background"></canvas>
     <script src="js/particles.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <script src="js/serverinfo.js"></script>
+
+    <div class="mc-server-container">
+        <!-- Header -->
+        <div class="mc-header">
+            <h1 class="mc-title">SRAB Minecraft Server</h1>
+            <p class="mc-subtitle">Join our community server today!</p>
+        </div>
+
+        <!-- Server Status Card -->
+        <div class="mc-card">
+            <div class="mc-card-header">
+                <div class="mc-card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <title>Server Status Icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                    </svg>
+                    <span>Server Status</span>
+                </div>
+                <div class="mc-status">
+                    <div class="mc-status-dot" id="statusDot"></div>
+                    <span class="mc-status-text" id="statusText">Checking...</span>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="mc-alert" style="display: none;" role="alert">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <title>Error Icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span id="errorText"></span>
+            </div>
+
+            <div class="mc-grid">
+                <!-- Server IP -->
+                <div class="mc-info-box">
+                    <div class="mc-info-label">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <title>Server Address Icon</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                        </svg>
+                        <span>Server 1</span>
+                    </div>
+                    <p class="mc-info-value" style="color: #c084fc;">mc.srab.me</p>
+                    <button class="mc-copy-btn" data-ip="mc.srab.me" aria-label="Click to copy server 1 IP">Click to copy</button>
+                </div>
+
+                <!-- Server IP 2 -->
+                <div class="mc-info-box">
+                    <div class="mc-info-label">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <title>Server Address Icon</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                        </svg>
+                        <span>Server 2</span>
+                    </div>
+                    <p class="mc-info-value" style="color: #c084fc;">m.srab.me</p>
+                    <button class="mc-copy-btn" data-ip="m.srab.me" aria-label="Click to copy server 2 IP">Click to copy</button>
+                </div>
+
+                <!-- Players Online -->
+                <div class="mc-info-box">
+                    <div class="mc-info-label">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <title>Players Online Icon</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <span>Players Online</span>
+                    </div>
+                    <p class="mc-info-value" style="color: #4ade80;" id="playerCount">0 / 0</p>
+                </div>
+
+                <!-- Version -->
+                <div class="mc-info-box">
+                    <div class="mc-info-label">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <title>Server Version Icon</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Version</span>
+                    </div>
+                    <p class="mc-info-value" style="color: #60a5fa;" id="serverVersion">Java 1.21</p>
+                </div>
+            </div>
+
+            <!-- MOTD -->
+            <div class="mc-motd" id="motdBox" style="display: none;">
+                <h3 class="mc-motd-label">Message of the Day</h3>
+                <p id="motdText" style="white-space: pre-wrap;"></p>
+            </div>
+        </div>
+
+        <!-- Mods & Requirements -->
+        <div class="mc-card">
+            <h2 class="mc-card-title" style="margin-bottom: 1.5rem;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <title>Download Icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span>If you want to play with mods:</span>
+            </h2>
+
+            <div style="background: rgba(30, 58, 138, 0.3); border: 1px solid #3b82f6; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem;">
+                <p style="color: #93c5fd; margin: 0;">
+                    <strong>Java Requirement:</strong> This server requires Java Edition 1.21 with Fabric Loader installed.
+                </p>
+            </div>
+            
+            <a href="https://drive.google.com/drive/folders/1u9NXJYVAUF-w15xADOoAKbZRyAuqYbL0?usp=sharing" class="mc-mod-link">
+                <div class="mc-mod-item">
+                    <div class="mc-mod-name">Mods for Java</div>
+                    <span class="mc-badge">Required</span>
+                </div>
+            </a>
+            <a href="https://srab.vercel.app" class="mc-mod-link" target="_blank" rel="noopener noreferrer">
+                <div class="mc-mod-item">
+                    <div class="mc-mod-name">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="width: 0.9rem; height: 0.9rem; display: inline; margin-right: 0.3rem;">
+                            <title>External Link Icon</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                        Contact & More
+                    </div>
+                    <span class="mc-badge" style="background: #8b5cf6;">Visit</span>
+                </div>
+            </a>
+
+            <div class="mc-info-note">
+                <p>
+                    <strong>Note:</strong> Make sure to install Fabric Loader for Minecraft 1.21 before installing these mods. 
+                    Download the required mods from CurseForge or Modrinth.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mc-footer">
+            <p>Server status updates every 30 seconds</p>
+            <p class="mc-footer-signature">
+                <a href="https://github.com/SRAB-9" target="_blank" rel="noopener noreferrer">
+                    Created by SRAB-9 on GitHub
+                </a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>
 
