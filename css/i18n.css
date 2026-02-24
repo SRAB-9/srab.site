@@ -1,0 +1,135 @@
+/* ─────────────────────────────────────────────
+   i18n / RTL styles — SRAB Minecraft Server
+   ───────────────────────────────────────────── */
+
+/* ── Arabic font ─────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+/* ── Language toggle button ──────────────────── */
+
+.lang-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(30, 30, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.lang-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.lang-toggle .lt-en,
+.lang-toggle .lt-ar {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1;
+  transition: color 0.2s;
+  font-family: 'Cairo', 'Bitcount Grid Double', monospace;
+  letter-spacing: 0.03em;
+}
+
+.lang-toggle .lt-sep {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  font-family: monospace;
+}
+
+.lang-toggle .lt-active {
+  color: #c084fc;
+}
+
+/* ────────────────────────────────────────────────
+   ARABIC / RTL OVERRIDES
+   Applied when <html dir="rtl"> is set.
+
+   NOTE: `dir="rtl"` on <html> already causes
+   `direction: rtl` to inherit everywhere, which
+   automatically reverses flex-row flow and text
+   direction. We only need to fix font, overflow,
+   and physical (non-logical) CSS properties that
+   don't respect writing direction.
+   ─────────────────────────────────────────────── */
+
+
+/* ── 2. Font: swap Gill Sans + Bitcount for Cairo ──── */
+/*
+   Gill Sans (used in .mc-card-title) has zero Arabic
+   glyph support — text renders as invisible boxes.
+   letter-spacing breaks Arabic character joining rules.
+*/
+html[dir="rtl"],
+html[dir="rtl"] body,
+html[dir="rtl"] *:not(svg):not(path):not(canvas) {
+  font-family: 'Cairo', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Preserve monospace for IPs / code blocks */
+html[dir="rtl"] code,
+html[dir="rtl"] pre,
+html[dir="rtl"] .mc-info-value,
+html[dir="rtl"] .mc-step-ip {
+  font-family: monospace !important;
+}
+
+/* ── 3. Labels: remove uppercase (no-op on Arabic but looks odd) ── */
+html[dir="rtl"] .mc-info-label,
+html[dir="rtl"] .mc-step-badge {
+  text-transform: none;
+}
+
+/* ── 4. Fix physical CSS properties that don't auto-flip ── */
+
+/* Copy tooltip is `right: 0.6rem` (physical) — flip to left in RTL */
+html[dir="rtl"] .mc-copy-tooltip {
+  right: auto;
+  left: 0.6rem;
+}
+
+/* Lang toggle: always stays top-right and always renders LTR internally */
+html[dir="rtl"] .lang-toggle {
+  direction: ltr;
+}
+
+/* mc-contact-link uses `margin-left: auto` to push itself to the
+   far right in LTR. In RTL flex row (right→left), the far end is
+   the left side, so margin-left: auto already works — no change needed. */
+
+/* ── 5. Container width: force full-width so sections match LTR layout ── */
+/*
+   body is display:flex; justify-content:center and .mc-server-container has
+   no explicit width — it shrinks to content-width. Cairo renders Arabic text
+   more compactly than Bitcount/Gill Sans, so without an explicit width the
+   container is narrower than in English. Force it to fill available space.
+*/
+html[dir="rtl"] .mc-server-container {
+  width: 100%;
+}
+
+/* ── 6. Responsive: realign mobile card-header in RTL ── */
+@media (max-width: 768px) {
+  html[dir="rtl"] .mc-card-header {
+    align-items: flex-end;   /* flip the flex-start alignment for RTL */
+  }
+}

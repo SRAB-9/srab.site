@@ -1,0 +1,225 @@
+/* ── Getting started steps ──────────────────── */
+
+.mc-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mc-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.mc-step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.mc-step-line {
+    flex: 1;
+    width: 2px;
+    min-height: 1rem;
+    background: rgba(55, 65, 81, 0.6);
+    border-radius: 9999px;
+    margin: 0.3rem 0;
+}
+
+.mc-step-body {
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+.mc-step-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mc-step-icon svg {
+    width: 1.35rem;
+    height: 1.35rem;
+}
+
+.mc-step-icon--blue   { background: rgba(59, 130, 246, 0.18); color: #60a5fa; }
+.mc-step-icon--green  { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+.mc-step-icon--purple { background: rgba(139, 92, 246, 0.18); color: #a78bfa; }
+
+.mc-step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.mc-step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f3f4f6;
+    margin: 0;
+}
+
+.mc-step-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+}
+
+.mc-step-badge--blue   { background: rgba(59, 130, 246, 0.2);  color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.4); }
+.mc-step-badge--green  { background: rgba(16, 185, 129, 0.2);  color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+.mc-step-badge--purple { background: rgba(139, 92, 246, 0.2);  color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4); }
+
+.mc-step-desc {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+}
+
+.mc-step-desc strong {
+    color: #d1d5db;
+}
+
+.mc-step-desc code {
+    font-family: monospace;
+    background: rgba(55, 65, 81, 0.6);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    color: #e5e7eb;
+}
+
+.mc-step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    background: rgba(59, 130, 246, 0.18);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.mc-step-link--green {
+    background: rgba(16, 185, 129, 0.18);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.35);
+}
+
+.mc-step-link svg {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+.mc-step-link:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* ── Step IP chips ──────────────────────────── */
+
+.mc-step-ips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow: visible;
+}
+
+.mc-step-ip {
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #c084fc;
+    background: rgba(192, 132, 252, 0.1);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    padding: 0.3rem 0.75rem;
+    border-radius: 0.4rem;
+}
+
+.mc-step-ip--copyable {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.mc-step-ip--copyable:hover {
+    background: rgba(192, 132, 252, 0.22);
+    border-color: rgba(192, 132, 252, 0.55);
+    transform: translateY(-2px);
+}
+
+.mc-step-ip--copyable:active {
+    transform: translateY(0);
+}
+
+.mc-step-ip--copyable:focus-visible {
+    outline: 2px solid #c084fc;
+    outline-offset: 2px;
+}
+
+.mc-step-ip--copyable.copied {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.12);
+    border-color: rgba(74, 222, 128, 0.6);
+}
+
+/* ── Contact row ────────────────────────────── */
+
+.mc-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+    padding: 0.9rem 1rem;
+    background: rgba(55, 65, 81, 0.3);
+    border: 1px solid rgba(55, 65, 81, 0.7);
+    border-radius: 0.6rem;
+    font-size: 0.875rem;
+    color: #9ca3af;
+}
+
+.mc-contact-row svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    color: #6b7280;
+}
+
+.mc-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-left: auto;
+    transition: color 0.2s;
+}
+
+.mc-contact-link svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    color: inherit;
+}
+
+.mc-contact-link:hover {
+    color: #c4b5fd;
+}

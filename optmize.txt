@@ -1,0 +1,91 @@
+# Roadmap for implementing and optimizing the Minecraft SRAB server status website
+
+https://mcapi.us/
+
+use this docs to to implement and connect this API to this website. The API provides information about Minecraft servers, add all the information about the server to the website in a good looking way. Use Context 7 to fetch and read the API and display the information on the website. the server IP is "mc.srab.me"
+
+note: cleanup all the javascript code and remove all and build a new one that is clean and optimized.
+
+------------
+
+- remove the "SRAB Minecraft Server" text and replace it with the "Server Status" text.
+
+- make the server icon little bigger.
+
+- add made with love by SRAB text at the bottom of the website. with heart emoji.
+
+- refactor the second section of the website and make it organized, clear, user friendly and good looking. add some icons to make it look better.
+
+------------
+
+the lines between the steps are not long enough as you can see at the image.
+
+------------
+
+use this font as the main font of the website: https://fonts.google.com/specimen/Bitcount+Grid+Double
+
+------------
+
+the click to copy buttons, instead of click to copy, make the card itself clickable and when the user clicks on the card, it will copy the server IP, and shows a tooltip that says "Copied!".
+
+add the click to copy text to shows that this card is clickable.
+
+in the 3rd step, in the server domains, it should when i click them it should copy the domain to the clipboard and shows somthing to let the user it has been copied.
+
+------------
+
+in the first section when i hover over the 2 server domains cards, it should shows a tooltip that says:
+
+- for the mc.srab.me card: for java players.
+- for the m.srab.me card: for bedrock and console players.
+
+also when hovering over the discord avatar, it should shows a tooltip that says "Server Owner".
+
+note: the tooltip should be custom designed, don't use the default browser tooltip.
+
+------------
+
+when i click on a player, it should goes me to "https://namemc.com/" with the player's name as a search query, so it will show me the player's profile on NameMC.
+
+------------
+
+add some features to the website like a button to refresh the server status if passible, or any other features you think would be good to have on the website.
+
+------------
+
+add a discord information about the user's owner, same when i click on the user profile in discord, it shows the user name, status, bio, avatar, and more information about the user. (use Context7 MCP server to search for discord API and how to use it to fetch the user information and display it on the website).
+
+don't add a hole section for the discord information, shows the avatar in the first section of the website, and when i click on the avatar it will shows the user information in a popup or something like that.
+
+------------
+
+i noticed css file are big, can you split the css file into multiple files and organize them in a good way, same with the javascript files if needed.
+
+cleanup any unused code css/functions/variables/elements in the website and remove it to make the website more optimized and clean.
+
+------------
+
+add arabic + english support to the website, and make it easy for the user to switch between the two languages. for the arabic: 'لغة عربيه عاميه سعوديه'
+
+------------
+
+after switching the language to arabic, the UI is broken, the sections goes small, the html should be RTL, etc.
+
+don't change the lang switcher button when switching the language.
+
+also still the sections width should be the same in both languages. not fixed yet.
+
+------------
+
+make the 1639053276.jpg image we have as an favicon or the OG image for the website.
+
+------------
+
+there is an issue in small screens, i can only scroll a little bit, and the rest of the website are up, make the website fully scrollable and fix the background particles beacause when scrolling the particles are not scrolling with the website.
+
+now the background particles dosent animate! please fix it!
+
+------------
+
+update the readme.md file.
+add a license file MIT.

@@ -1,0 +1,21 @@
+/* ── Keyframe animations ────────────────────── */
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dc-modal-in {
+    from { opacity: 0; transform: scale(0.93) translateY(8px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+/* ── Animation utility class ────────────────── */
+
+.mc-spin {
+    animation: spin 0.7s linear infinite;
+}

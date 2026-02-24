@@ -1,0 +1,285 @@
+/* ── Owner avatar button ────────────────────── */
+
+.dc-owner-btn {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(55, 65, 81, 0.6);
+    border: 2px solid rgba(88, 101, 242, 0.4);
+    flex-shrink: 0;
+    transition: border-color 0.2s, transform 0.15s;
+    overflow: visible;
+}
+
+.dc-owner-btn:hover {
+    border-color: rgba(88, 101, 242, 0.9);
+    transform: scale(1.08);
+}
+
+.dc-owner-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.dc-owner-avatar-ph {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.dc-owner-avatar-ph svg {
+    width: 1rem;
+    height: 1rem;
+    color: #9ca3af;
+}
+
+.dc-owner-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    border: 2px solid #111;
+    background: #6b7280;
+}
+
+.dc-owner-dot.dc-status--online  { background: #10b981; }
+.dc-owner-dot.dc-status--idle    { background: #f59e0b; }
+.dc-owner-dot.dc-status--dnd     { background: #ef4444; }
+.dc-owner-dot.dc-status--offline { background: #6b7280; }
+
+/* ── Modal overlay ──────────────────────────── */
+
+.dc-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.dc-modal-overlay.open {
+    display: flex;
+}
+
+.dc-modal {
+    position: relative;
+    background: #1a1b1e;
+    border: 1px solid rgba(88, 101, 242, 0.3);
+    border-radius: 1rem;
+    padding: 2rem 1.75rem 1.75rem;
+    width: 100%;
+    max-width: 22rem;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    animation: dc-modal-in 0.18s ease;
+}
+
+.dc-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: none;
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s;
+}
+
+.dc-modal-close:hover {
+    background: rgba(239, 68, 68, 0.25);
+    color: #ef4444;
+}
+
+.dc-modal-close svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+/* ── Modal avatar ───────────────────────────── */
+
+.dc-modal-avatar-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.85rem;
+}
+
+.dc-modal-avatar,
+.dc-modal-avatar-ph {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dc-modal-avatar-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(55, 65, 81, 0.6);
+    border: 2px solid rgba(88, 101, 242, 0.3);
+}
+
+.dc-modal-avatar-ph svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #6b7280;
+}
+
+.dc-modal-status-ring {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2.5px solid #1a1b1e;
+    background: #6b7280;
+}
+
+.dc-modal-status-ring.dc-status--online  { background: #10b981; }
+.dc-modal-status-ring.dc-status--idle    { background: #f59e0b; }
+.dc-modal-status-ring.dc-status--dnd     { background: #ef4444; }
+.dc-modal-status-ring.dc-status--offline { background: #6b7280; }
+
+/* ── Modal content ──────────────────────────── */
+
+.dc-modal-username {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f3f4f6;
+    margin: 0 0 0.4rem;
+}
+
+.dc-modal-status-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.dc-modal-status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #6b7280;
+    flex-shrink: 0;
+}
+
+.dc-modal-status-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #9ca3af;
+}
+
+.dc-modal-custom-status {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    margin: 0 0 0.75rem;
+}
+
+/* ── Activity & Spotify blocks ──────────────── */
+
+.dc-modal-activity,
+.dc-modal-spotify {
+    text-align: left;
+    margin-top: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0.6rem;
+}
+
+.dc-modal-activity {
+    background: rgba(55, 65, 81, 0.35);
+    border: 1px solid rgba(55, 65, 81, 0.7);
+}
+
+.dc-modal-spotify {
+    background: rgba(30, 215, 96, 0.07);
+    border: 1px solid rgba(30, 215, 96, 0.2);
+}
+
+.dc-modal-section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin: 0 0 0.3rem;
+}
+
+.dc-modal-activity-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dc-modal-spotify-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.dc-modal-spotify-art {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.dc-modal-spotify-artist {
+    font-size: 0.73rem;
+    color: #6b7280;
+    margin: 0.15rem 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dc-modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 1.1rem;
+    color: #a78bfa;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.dc-modal-link svg {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.dc-modal-link:hover {
+    color: #c4b5fd;
+}
