@@ -58,8 +58,7 @@
                 </div>
                 <div class="mc-status">
                     <!-- Owner avatar button -->
-                    <button class="dc-owner-btn" id="dcOwnerBtn" aria-label="View server owner profile"
-                        title="Server Owner">
+                    <button class="dc-owner-btn" id="dcOwnerBtn" aria-label="View server owner profile">
                         <img id="dcAvatar" class="dc-owner-avatar" src="" alt="Owner" style="display:none;">
                         <div id="dcAvatarPlaceholder" class="dc-owner-avatar-ph">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -68,6 +67,7 @@
                             </svg>
                         </div>
                         <span id="dcStatusRing" class="dc-owner-dot dc-status--offline"></span>
+                        <span class="dc-tooltip" data-i18n="ownerTooltip">Server Owner</span>
                     </button>
                     <div class="mc-status-dot" id="statusDot"></div>
                     <span class="mc-status-text" id="statusText" data-i18n="checking">Checking...</span>
@@ -92,7 +92,7 @@
             <div class="mc-grid">
                 <!-- Server IP -->
                 <div class="mc-info-box mc-info-box--copyable" data-ip="mc.srab.me" role="button" tabindex="0"
-                    aria-label="Copy mc.srab.me">
+                    aria-label="Copy mc.srab.me" data-tooltip="For Java players" data-i18n-tooltip="server1Tooltip">
                     <div class="mc-info-label">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <title>Server Address Icon</title>
@@ -108,7 +108,8 @@
 
                 <!-- Server IP 2 -->
                 <div class="mc-info-box mc-info-box--copyable" data-ip="m.srab.me" role="button" tabindex="0"
-                    aria-label="Copy m.srab.me">
+                    aria-label="Copy m.srab.me" data-tooltip="For Bedrock and console players"
+                    data-i18n-tooltip="server2Tooltip">
                     <div class="mc-info-label">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <title>Server Address Icon</title>

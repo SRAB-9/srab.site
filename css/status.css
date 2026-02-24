@@ -86,6 +86,54 @@
     outline-offset: 2px;
 }
 
+/* ── Server-type hover tooltip ──────────────── */
+
+.mc-info-box--copyable:hover {
+    z-index: 10;
+}
+
+.mc-info-box--copyable[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(12, 12, 20, 0.96);
+    color: #e2e8f0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.38rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+.mc-info-box--copyable[data-tooltip]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    border: 5px solid transparent;
+    border-top-color: rgba(192, 132, 252, 0.35);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+.mc-info-box--copyable[data-tooltip]:hover::after,
+.mc-info-box--copyable[data-tooltip]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 .mc-copy-tooltip {
     position: absolute;
     top: 0.5rem;

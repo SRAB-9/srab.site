@@ -33,6 +33,11 @@ const TRANSLATIONS = {
     playing:        'Playing',
     listeningSpotify: 'Listening to Spotify',
 
+    // ── Tooltips ─────────────────────────────
+    server1Tooltip: 'For Java players',
+    server2Tooltip: 'For Bedrock and console players',
+    ownerTooltip:   'Server Owner',
+
     // ── Getting Started ──────────────────────
     gettingStarted: 'Getting Started',
     step1Title:     'Install Fabric Loader',
@@ -90,6 +95,11 @@ const TRANSLATIONS = {
     loading:        'يحمّل...',
     playing:        'يلعب',
     listeningSpotify: 'يسمع سبوتيفاي',
+
+    // ── Tooltips ─────────────────────────────
+    server1Tooltip: 'لاعبي Java',
+    server2Tooltip: 'لاعبي Bedrock والكونسول',
+    ownerTooltip:   'مالك السيرفر',
 
     // ── Getting Started ──────────────────────
     gettingStarted: 'كيف تبدأ',
@@ -165,6 +175,11 @@ function applyTranslations() {
   // aria-label attributes
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
     el.setAttribute('aria-label', window.t(el.dataset.i18nAria));
+  });
+
+  // data-tooltip attributes (for CSS-driven custom tooltips)
+  document.querySelectorAll('[data-i18n-tooltip]').forEach(el => {
+    el.dataset.tooltip = window.t(el.dataset.i18nTooltip);
   });
 }
 
